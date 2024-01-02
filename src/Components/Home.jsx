@@ -30,8 +30,6 @@ const Home = () => {
     const prices = [...new Set(arr.map((item) => item.price))];
     setPrices(prices);
   }
-  //
-  // console.log(selectedPrices);
 
   function handlePriceFilter(e) {
     if (e.target.value === "all") {

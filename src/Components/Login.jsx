@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { logInlogout } from "../Redux/authSlice";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function handleLogin() {
     fetch("https://dummyjson.com/auth/login", {
@@ -30,6 +33,7 @@ const Login = () => {
       });
     if (token) {
       localStorage.setItem("token", token);
+      dispatch(logInlogout(true));
       navigate("/");
     }
   }
