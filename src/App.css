@@ -134,3 +134,24 @@ a {
   padding-inline: 10px;
   cursor: pointer;
 }
+
+.cart {
+  position: relative;
+}
+.cart-price {
+  position: absolute;
+  font-size: 13px;
+  top: 30px;
+  right: 50px;
+  background-color: rgb(81, 9, 9);
+  color: white;
+  padding-inline: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.price-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

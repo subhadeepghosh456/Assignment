@@ -9,8 +9,9 @@ const Nav = () => {
           <span>Home</span>
         </Link>
         <Link to="/cart">
-          <span>Cart</span>
+          <span className="cart">Cart</span>
         </Link>
+        <span className="cart-price">0-$123</span>
 
         <Link to="/login">
           <span>Login</span>
