@@ -8,7 +8,9 @@ const Nav = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLogin = useSelector((store) => store.loginlogout.isLogin);
-  console.log(isLogin);
+  const totalItems = useSelector((store) => store.cartinfo.items);
+  const totalAmount = useSelector((store) => store.cartinfo.totalAmount);
+  console.log(totalItems);
 
   useEffect(() => {
     return () => {
@@ -36,7 +38,9 @@ const Nav = () => {
         <Link to="/cart">
           <span className="cart">Cart</span>
         </Link>
-        <span className="cart-price">0-$0</span>
+        <span className="cart-price">
+          {totalItems.length}-${totalAmount}
+        </span>
 
         {!isLogin ? (
           <Link to="/login">
