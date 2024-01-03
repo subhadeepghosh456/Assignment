@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logInlogout } from "../Redux/authSlice";
+import { clearCart } from "../Redux/cartSlice";
 
 const Nav = () => {
   // const [isLogin, setIsLogin] = useState(false);
@@ -10,7 +11,7 @@ const Nav = () => {
   const isLogin = useSelector((store) => store.loginlogout.isLogin);
   const totalItems = useSelector((store) => store.cartinfo.items);
   const totalAmount = useSelector((store) => store.cartinfo.totalAmount);
-  console.log(totalItems);
+  // console.log(totalItems);
 
   useEffect(() => {
     return () => {
@@ -22,10 +23,13 @@ const Nav = () => {
 
   function handleLogout() {
     let login = localStorage.getItem("token");
+
     if (login) {
       localStorage.removeItem("token");
+      localStorage.removeItem("logedInInfo");
       // setIsLogin((pre) => !pre);
       dispatch(logInlogout(false));
+      dispatch(clearCart(0));
       navigate("/login");
     }
   }

@@ -162,3 +162,8 @@ a {
   color: rgb(3, 3, 91);
   cursor: pointer;
 }
+
+.cart-container h1 {
+  text-align: center;
+  font-size: 2rem;
+}

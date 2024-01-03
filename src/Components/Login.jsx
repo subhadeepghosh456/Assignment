@@ -11,6 +11,10 @@ const Login = () => {
   const dispatch = useDispatch();
 
   function handleLogin() {
+    if (!userName && !password) {
+      alert("Invalid Credentials");
+      return;
+    }
     fetch("https://dummyjson.com/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
